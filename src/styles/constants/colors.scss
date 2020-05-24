@@ -1,0 +1,9 @@
+@use 'sass:color';
+
+$white: #ffffff;
+$black: #000000;
+$grey: #6d6c6c;
+$light-grey: lighten($grey, 30%);
+$blue: #1959cf;
+$green: #27aa27;
+$red: #cf2a2a;

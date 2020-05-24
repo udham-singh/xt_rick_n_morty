@@ -1,0 +1,9 @@
+@import './constants/colors.scss';
+
+.form-input {
+    border-radius: 3px;
+    outline: none;
+    padding: 5px;
+    border: 1px solid $light-grey;
+    font-size: 14px;
+}

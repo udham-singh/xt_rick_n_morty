@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import Characters from "./characters";
+import { Header } from "./shared/components/organisms";
+import { ROUTE_CHARACTERS } from "./shared/constants";
+import "./App.scss";
 
-function App() {
+const NotFound = () => <h2>404 Not Found</h2>;
+
+const App = () => {
+  useEffect(() => {
+    document.title = "Rick N Morty";
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header></Header>
+      <div className="container">
+        <Switch>
+          <Route path={ROUTE_CHARACTERS} component={Characters}></Route>
+          <Route render={() => <Redirect to={ROUTE_CHARACTERS} />} />
+          <Route component={NotFound}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

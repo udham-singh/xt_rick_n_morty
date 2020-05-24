@@ -1,0 +1,14 @@
+@import './constants/spacing.scss';
+
+$helper_class_count: 20;
+
+@for $i from 0 to $helper_class_count {
+    @each $key, $val in $spacing_map {
+        .m-#{$key}-#{$i} {
+            margin-#{$val}: $i * $spacing_multiplier + px;
+        }
+        .p-#{$key}-#{$i} {
+            padding-#{$val}: $i * $spacing_multiplier + px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@import './constants/colors.scss';
+
+.btn {
+    background-color: $white;
+    border: 1px solid $grey;
+    border-radius: 3px;
+    &--primary {
+        background-color: $blue;
+        color: $white;
+    }
+    &--success {
+        background-color: $green;
+        color: $white;
+    }
+    &--error {
+        background-color: $red;
+        color: $white;
+    }
+}

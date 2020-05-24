@@ -1,0 +1,44 @@
+.card {
+    width: 200px;
+    min-height: 100px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        box-shadow: 1px 1px 10px #9c9b9b;
+        transition: ease-in-out;
+    }
+    &__image {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    &__description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: #ffffff;
+        background-color: #00000083;
+        padding: 10px;
+        box-sizing: border-box;
+        transition: 1s top ease-in 0.3s;
+        &--active {
+            @extend .card__description;
+            top: 0;
+        }
+    }
+    &__title {
+        font-weight: bold;
+        display: block;
+    }
+    &__subtitle {
+        font-size: 14px;
+    }
+    &__body {
+        font-size: 14px;
+    }
+}
