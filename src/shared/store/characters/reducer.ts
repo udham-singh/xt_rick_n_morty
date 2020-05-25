@@ -1,12 +1,13 @@
-import { Character, ICharacterFilter } from "../../models/character";
+import { Character } from "../../models/character";
 import * as actions from "./actionTypes";
 import { SortDirection, SortParam } from "../../constants";
 
 export interface CharacterState {
   loading: boolean;
+  error: string;
   searchTerm: string;
   characters: Character[];
-  selectedFilters: Map<number, ICharacterFilter>;
+  appliedFilters: Map<string, string>;
   selectedPage: number;
   totalPages: number;
   sortOptions: {
@@ -17,9 +18,10 @@ export interface CharacterState {
 
 export const INITIAL_STATE: CharacterState = {
   loading: false,
+  error: "",
   searchTerm: "",
   characters: [],
-  selectedFilters: new Map(),
+  appliedFilters: new Map(),
   selectedPage: 1,
   totalPages: 1,
   sortOptions: {
@@ -40,6 +42,14 @@ export default function (
         ...state,
         characters: action.characters,
         totalPages: action.totalPages,
+        loading: false,
+        error: "",
+      };
+    case actions.GET_CHARACTERS_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
       };
     case actions.SET_CHARACTERS_SEARCH_TERM:
       return { ...state, searchTerm: action.searchTerm };
@@ -50,6 +60,18 @@ export default function (
       return { ...state, sortOptions: { direction, param } };
     case actions.SORT_CHARACTERS_SUCCESS:
       return { ...state, characters: action.sortedCharacters };
+    case actions.ADD_CHARACTER_FILTER: {
+      const filters = state.appliedFilters;
+      const { category, option } = action;
+      filters.set(category, option);
+      return { ...state, appliedFilters: new Map(filters) };
+    }
+    case actions.REMOVE_CHARACTER_FILTER: {
+      const filters = state.appliedFilters;
+      const { category } = action;
+      filters.delete(category);
+      return { ...state, appliedFilters: new Map(filters) };
+    }
     default:
       return state;
   }

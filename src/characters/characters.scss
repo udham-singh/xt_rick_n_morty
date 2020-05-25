@@ -1,31 +1,143 @@
+@import "../styles/mixins.scss";
+@import "../styles/constants/colors.scss";
+
 .characterHeader {
   padding: 15px 30px 0;
-  display: flex;
+
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
+
+  @include sm {
+    display: block;
+  }
+
+  @include md {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   &__search {
     flex: 1;
+
+    @include sm {
+      display: block;
+    }
   }
+
   &__sort {
     flex: 2;
     text-align: right;
+
+    @include sm {
+      display: block;
+      text-align: left;
+    }
+  }
+
+  &__filters {
+    flex: 1 1 100%;
+
+    .badgeContainer {
+      display: flex;
+      flex-wrap: wrap;
+
+      .badge {
+        margin-right: 15px;
+      }
+    }
   }
 }
 
-.list {
+.characterContainer {
+  display: flex;
+  position: relative;
+
+  @include sm {
+    display: block;
+  }
+
+  &__filters {
+    padding: 15px;
+    width: 20%;
+
+    @include md {
+      height: 100%;
+      position: fixed;
+      border-right: 1px solid $grey;
+    }
+
+    @include sm {
+      display: block;
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  &__body {
+    @include md {
+      width: 80%;
+      margin-left: 20%;
+    }
+
+    @include sm {
+      display: block;
+    }
+  }
+
+  &__list {
     display: flex;
     flex-wrap: wrap;
     padding: 15px;
+
     &__item {
-        padding: 15px;
-        z-index: 1;
-        cursor: pointer;
-        transform: scale(1);
+      padding: 15px;
+      z-index: 1;
+      cursor: pointer;
+      transform: scale(1);
+      transition: 0.5s transform ease-in-out;
+
+      @include sm {
+        width: 50%;
+      }
+
+      @include md {
+        width: 25%;
+      }
+
+      &:hover {
+        transform: scale(1.2);
         transition: 0.5s transform ease-in-out;
-        &:hover {
-          transform: scale(1.2);
-          transition: 0.5s transform ease-in-out;
-        }
+      }
     }
+  }
+}
+
+.sortContainer {
+  @include sm {
+    margin-top: 15px;
+  }
+}
+
+.filterContainer {
+  @include sm {
+    margin: 15px;
+  }
+}
+
+.filterCategory {
+  &__options {
+    @include sm {
+      display: flex;
+      flex-wrap: wrap;
+
+      .filterCategoryOption {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .filterCategoryOption {
+    margin-right: 15px;
+  }
 }

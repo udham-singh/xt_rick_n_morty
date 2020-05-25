@@ -1,0 +1,17 @@
+@import "../../../../styles/constants/colors.scss";
+
+.badge {
+    padding: 10px 15px;
+    background-color: $blue;
+    border-radius: 100px;
+
+    &__text {
+        margin-right: 10px;
+        color: $white;
+    }
+
+    &__icon {
+        color: $black;
+        cursor: pointer;
+    }
+}

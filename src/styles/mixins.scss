@@ -1,0 +1,19 @@
+@import "./constants/media.scss";
+
+@mixin sm {
+    @media (max-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}

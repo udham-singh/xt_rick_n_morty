@@ -9,15 +9,20 @@
     display: flex;
     z-index: 2;
     overflow: hidden;
+
     &__logo {
         flex: 1;
+        text-align: center;
+
         img {
             height: 120px;
             transform: translateY(-25px);
-        } 
+        }
     }
+
     .nav {
         flex: 2;
+
         &__list {
             list-style: none;
             padding: 0;
@@ -26,12 +31,15 @@
             justify-content: flex-end;
             height: 100%;
             align-items: center;
+
             &__item {
                 padding: 10px 20px;
+
                 &__link {
                     color: #6b6b6b;
                     text-decoration: none;
                     text-transform: uppercase;
+
                     &--active {
                         border-bottom: 2px solid #FF9800;
                     }

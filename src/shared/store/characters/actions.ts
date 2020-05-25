@@ -17,6 +17,12 @@ export const getCharactersSuccess = (
   characters,
   totalPages,
 });
+export const getCharactersFailed = (
+  error: string
+): actions.GetCharactersFailedAction => ({
+  type: actions.GET_CHARACTERS_FAILED,
+  error,
+});
 
 export const setCharactersSearchTerm = (
   searchTerm: string
@@ -44,4 +50,20 @@ export const sortCharactersSuccess = (
 ): actions.SortCharactersSuccess => ({
   type: actions.SORT_CHARACTERS_SUCCESS,
   sortedCharacters,
+});
+
+export const addCharacterFilter = (
+  category: string,
+  option: string
+): actions.AddCharacterFilter => ({
+  type: actions.ADD_CHARACTER_FILTER,
+  category,
+  option,
+});
+
+export const removeCharacterFilter = (
+  category: string
+): actions.RemoveCharacterFilter => ({
+  type: actions.REMOVE_CHARACTER_FILTER,
+  category,
 });

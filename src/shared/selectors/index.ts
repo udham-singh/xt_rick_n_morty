@@ -4,4 +4,7 @@ export {
   selectTotalPages,
   selectSearchTerm,
   selectSortOptions,
+  selectAppliedFilters,
+  selectCharactersError,
+  selectCharactersIsLoading,
 } from "./characterSelectors";
