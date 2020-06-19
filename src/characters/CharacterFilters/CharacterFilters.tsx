@@ -22,7 +22,6 @@ export const CharacterFilters = () => {
     option: string,
     isChecked: boolean
   ) => {
-    console.log(category, option, isChecked);
     if (option !== "None") {
       dispatch(addCharacterFilter(category, option));
     } else {

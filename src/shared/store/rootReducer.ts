@@ -1,5 +1,11 @@
 import { combineReducers } from "redux";
-import characters from "./characters/reducer";
+import characters, {
+  INITIAL_STATE as CharactersInitState,
+} from "./characters/reducer";
+
+export const APP_INITIAL_STATE = {
+  characters: CharactersInitState,
+};
 
 const rootReducer = combineReducers({
   characters,
