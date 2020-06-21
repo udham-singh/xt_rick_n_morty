@@ -17,9 +17,9 @@ import { CharacterHeader } from "./CharacterHeader/CharacterHeader";
 
 const Characters = () => {
   const dispatch = useDispatch();
-  const totalPages = useSelector(selectTotalPages);
-  const page = useSelector(selectCurrentPage);
-  const searchTerm = useSelector(selectSearchTerm);
+  const totalPages: number = useSelector(selectTotalPages);
+  const page: number = useSelector(selectCurrentPage);
+  const searchTerm: string = useSelector(selectSearchTerm);
 
   useEffect(() => {
     let params: any = { page };

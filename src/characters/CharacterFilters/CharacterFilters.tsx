@@ -17,11 +17,7 @@ export const CharacterFilters = () => {
   const name = useSelector(selectSearchTerm);
   const page = useSelector(selectCurrentPage);
 
-  const handleFilterSelection = (
-    category: string,
-    option: string,
-    isChecked: boolean
-  ) => {
+  const handleFilterSelection = (category: string, option: string) => {
     if (option !== "None") {
       dispatch(addCharacterFilter(category, option));
     } else {
@@ -39,9 +35,7 @@ export const CharacterFilters = () => {
               value={option}
               name={filter.key}
               key={option}
-              onSelect={(isChecked: boolean) =>
-                handleFilterSelection(filter.key, option, isChecked)
-              }
+              onSelect={() => handleFilterSelection(filter.key, option)}
             />
           ))}
         </FilterCategory>
