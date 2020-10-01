@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true udhsingh/xt_rick_n_morty npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "ricknmorty-docker"
+  env: "RicknmortyDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-692663505966"
+  bucket_path: "ricknmorty-docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
