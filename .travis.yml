@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -6,4 +7,4 @@ before_install:
   - docker build -f Dockerfile.dev -t udhsingh/xt_rick_n_morty .
 
 script:
-  - docker run udhsingh/xt_rick_n_morty npm run test -- --coverage
+  - docker run -e CI=true udhsingh/xt_rick_n_morty npm run test
